@@ -1,0 +1,34 @@
+{% extends 'adminNavbar.html' %}
+
+{% block content %}
+
+<div class="container">
+<a href="{% url 'add_genre' %}" class="btn btn-primary">Tambah Genre</a>
+<br>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for genre in genre %}
+                    <tr>
+                        <td><a href="{% url 'change_genre' genre.id %}">{{ genre.nama }}</a></td>
+                        <td>{{ genre.keterangan }}</td>
+                        <td>
+                        <a href="{% url 'delete_genre' genre.id %}" class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

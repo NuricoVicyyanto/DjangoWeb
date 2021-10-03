@@ -1,0 +1,16 @@
+body{
+    background-color: #ffffff;
+}
+
+.navbar{
+    background-color: #53344c;
+}
+
+.content{
+    margin-top: 90px;
+}
+
+.footer{
+    background-color: #53344c;
+    margin-top: 50px;
+}

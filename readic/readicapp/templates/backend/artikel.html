@@ -1,0 +1,45 @@
+{% extends 'adminNavbar.html' %}
+
+{% block content %}
+
+<div class="container">
+<a href="{% url 'add_artikel' %}" class="btn btn-primary">Tambah Artikel</a>
+<a href="{% url 'export_xls' %}" class="btn btn-success">Download Excel</a>
+<br>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th>Content</th>
+                        <th>Genre</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for artikel in artikel %}
+                    <tr>
+                        <td>
+                            {% if artikel.cover %}
+                                <img src="{{ artikel.cover.url }}" width="90px">
+                            {% endif %}
+                        </td>
+                        <td><a href="{% url 'change_artikel' artikel.id %}">{{ artikel.judul }}</a></td>
+                        <td>{{ artikel.deskripsi }}</td>
+                        <td>{{ artikel.konten }}</td>
+                        <td>{{ artikel.genre_id }}</td>
+                        <td>
+                        <a href="{% url 'delete_artikel' artikel.id %}" class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

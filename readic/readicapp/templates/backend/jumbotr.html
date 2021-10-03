@@ -1,0 +1,38 @@
+{% extends 'adminNavbar.html' %}
+
+{% block content %}
+
+<div class="container">
+<a href="{% url 'add_jumbotr' %}" class="btn btn-primary">Atur Jumbotron</a>
+<br>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Judul</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for jumbotr in jumbotr %}
+                    <tr>
+                        <td>
+                            {% if jumbotr.image %}
+                                <img src="{{ jumbotr.image.url }}" width="90px">
+                            {% endif %}
+                        </td>
+                        <td><a href="{% url 'change_jumbotr' jumbotr.id %}">{{ jumbotr.judul }}</a></td>
+                        <td>
+                        <a href="{% url 'delete_jumbotr' jumbotr.id %}" class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

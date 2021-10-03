@@ -1,0 +1,24 @@
+{% extends 'homeNavbar.html' %}
+
+{% block content %}
+
+<div class="content">
+    <div class="container">
+        <div class="card shadow">
+            <div class="card-header">
+                {{ artikel.judul }}
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <img src="{{ artikel.cover.url }}" alt="" srcset="">
+                    <h4>{{ artikel.deskripsi }}</h4>
+                    <p>{{ artikel.konten }}</p>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
