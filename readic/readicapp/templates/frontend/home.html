@@ -3,21 +3,24 @@
 {% block content %}
 <div class="content">
     <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4">Readic</h1>
-            {% comment %} {% for jumbotr in jumbotr %}
-            {% if jumbotr.image %}
+        <div class="main row d_flex">
+            <div class="col-md-6">
+                <div class="text-bg">
+                    <h1>
+                        <font color="#53344c">READIC</font>
+                    </h1>
+                    <p><font color="#53344c">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mattis varius lobortis. Nunc consequat feugiat consectetur. Sed in nunc id sem placerat viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec a molestie libero. Duis non odio sit amet massa faucibus ultrices at non augue.
+                    </font></p>
+                </div>
+            </div>
+            <div class="jumbotr col-lg-6">
+                {% for jumbotr in jumbotr %}
+                {% if jumbotr.image %}
                 <img src="{{ jumbotr.image.url }}" class="card-img-top" alt="...">
-            {% endif %}
-            {% endfor %} {% endcomment %}
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-                to
-                featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </p>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
     <div class="container">
@@ -26,7 +29,7 @@
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
-            {% for artikel in artikel %}
+                {% for artikel in artikel %}
                 <div class="card shadow">
                     {% if artikel.cover %}
                     <img src="{{ artikel.cover.url }}" class="card-img-top" alt="...">
