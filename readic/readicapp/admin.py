@@ -13,4 +13,5 @@ admin.site.register(Artikel, ArtikelAdmin)
 admin.site.register(Genre),
 admin.site.register(jumbotron)
 admin.site.register(Profile)
+admin.site.register(Data)
 

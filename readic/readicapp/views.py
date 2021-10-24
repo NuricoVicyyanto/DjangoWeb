@@ -193,6 +193,66 @@ def delete_genre(request, id_genre):
 
     return redirect('genre')
 
+#data ml
+@login_required(login_url=settings.LOGIN_URL)
+def prediksi(request):
+    prediksi = Data.objects.all()
+
+    konteks ={
+        'prediksi':prediksi,
+    }
+
+    return render(request, 'backend/prediksi.html', konteks)
+
+@login_required(login_url=settings.LOGIN_URL)
+def add_prediksi(request):
+    if request.POST:
+        form = FormData(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            alert = 'Data Berhasil Ditambahkan'
+            form = FormData
+
+            konteks={
+                'form':form,
+                'alert':alert,
+            }
+
+            return render(request, 'backend/add_prediksi.html', konteks)
+
+    else:
+        form = FormData()
+
+        konteks ={
+            'form':form,
+        }
+
+    return render(request, 'backend/add_prediksi.html', konteks)
+
+@login_required(login_url=settings.LOGIN_URL)
+def change_prediksi(request, id_prediksi):
+    prediksi = Data.objects.get(id=id_prediksi)
+    template = 'backend/change_prediksi.html'
+    if request.POST:
+        form = FormData(request.POST,request.FILES, instance=prediksi)
+        if form.is_valid():
+            form.save()
+            return redirect('change_prediksi', id_prediksi=id_prediksi)
+    else:
+        form = FormData(instance=prediksi)
+        konteks ={
+            'form':form,
+            'prediksi':prediksi,
+        }
+        return render(request, template, konteks)
+
+@login_required(login_url=settings.LOGIN_URL)
+def delete_prediksi(request, id_prediksi):
+    genre = Data.objects.get(id=id_prediksi)
+    genre.delete()
+
+    return redirect('prediksi')
+
 
 #jumbotron crud
 @login_required(login_url=settings.LOGIN_URL)

@@ -1,0 +1,23 @@
+{% extends 'adminNavbar.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            {% if alert %}
+            <div class="alert alert-success">{{ alert }}</div>
+            {% endif %}
+            <form action="/add_prediksi/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark">Tambah Prediksi</button>
+            <a href="/prediksi" class="btn btn-danger">Kembali</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

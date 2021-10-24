@@ -2,6 +2,18 @@ from django.forms import ModelForm, widgets
 from django import forms
 from readicapp.models import *
 
+class FormData(ModelForm):
+    class Meta:
+        model = Data
+        exclude = ['date', 'predictions']
+
+        widgets = {
+            'name':forms.TextInput({'class':'form-control', 'id':'name'}),
+            'age':forms.TextInput({'class':'form-control'}),
+            'height':forms.TextInput({'class':'form-control'}),
+            'sex':forms.Select({'Male':'1','Female':'0','class':'form-control'})
+        }
+
 class FormArtikel(ModelForm):
     class Meta:
         model = Artikel

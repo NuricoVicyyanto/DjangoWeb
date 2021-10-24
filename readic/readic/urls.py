@@ -39,6 +39,14 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
 
     #backend
+
+    #DATA ML
+    path('add_prediksi/', add_prediksi, name='add_prediksi'),
+    path('prediksi/', prediksi, name='prediksi'),
+    path('prediksi/change_prediksi/<int:id_prediksi>', change_prediksi, name='change_prediksi'),
+    path('prediksi/delete_prediksi/<int:id_prediksi>', delete_prediksi, name='delete_prediksi'),
+
+
     #artikel
     path('add_artikel/', add_artikel, name='add_artikel'),
     path('artikel/', artikel, name='artikel'),

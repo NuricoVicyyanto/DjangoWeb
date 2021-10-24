@@ -1,0 +1,40 @@
+{% extends 'adminNavbar.html' %}
+
+{% block content %}
+
+<div class="container">
+<a href="{% url 'add_prediksi' %}" class="btn btn-primary">Tambah Prediksi</a>
+<br>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Umur</th>
+                        <th>Tinggi</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Hasil Prediksi</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for prediksi in prediksi %}
+                    <tr>
+                        <td><a href="{% url 'change_prediksi' prediksi.id %}">{{ prediksi.name }}</a></td>
+                        <td>{{ prediksi.age }}</td>
+                        <td>{{ prediksi.height }}</td>
+                        <td>{{ prediksi.sex }}</td>
+                        <td>{{ prediksi.predictions }}</td>
+                        <td>
+                        <a href="{% url 'delete_prediksi' prediksi.id %}" class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

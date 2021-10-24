@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rma0%_b^3mm5%r3j6ar1f4ssue5px2979wpc2x2d58bpjhm88('
+# SECRET_KEY = 'rma0%_b^3mm5%r3j6ar1f4ssue5px2979wpc2x2d58bpjhm88(' asli
+SECRET_KEY = '1lgvz_p2yunn&tw!(s8@3r8drmtzb8m5qk)heribt*84pqqbty'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -66,7 +67,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'django.template.context_processors.media',#tambah agar bisa akses gambar
+                'django.template.context_processors.media',##tambah agar bisa akses gambar
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'readic.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'readicdb.sqlite3',
     }
 }
 
@@ -130,7 +131,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-#arah  tujuan file setelah login 
+#arah  tujuan file setelah login
 LOGIN_REDIRECT_URL='artikel'
 
 LOGIN_URL = 'login'
