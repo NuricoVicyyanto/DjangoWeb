@@ -1,7 +1,7 @@
 # Go Go Go Learn Python
 
-# django-admin startproject readic
-# django-admin startapp readicapp
+- django-admin startproject readic
+- django-admin startapp readicapp
 -di setting.py installed app tambah nama app
 -pada folder utama buat folder templates untuk tempat kerangka html
 -pada folder apps buat folder tempalte untuk tempat tampilan utama html
